@@ -47,7 +47,7 @@ search_word(char word[],
 
   // TO BE COMPLETED
 
-  return true;
+  return 0;
 }
 
 /**

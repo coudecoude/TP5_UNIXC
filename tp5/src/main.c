@@ -14,7 +14,7 @@ main()
   // TO BE COMPLETED
 
   // create filelist array
-  // TO BE COMPLETED
+  create_filelist(MAX_FILES);
 
   // display menu
   while (1) {
@@ -44,7 +44,7 @@ main()
 
       // Load a file in dictionary
     case 1:
-      
+
       // TO BE COMPLETED
 
       break;
@@ -93,7 +93,9 @@ main()
 int
 hashcode(char word[], int size)
 {
-
-  // TO BE COMPLETED
-
+  int sum = 0;
+  for(int i=0; i<strlen(word); i++){
+    sum += word[i];
+  }
+  return sum%size;
 }

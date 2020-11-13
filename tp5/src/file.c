@@ -27,10 +27,14 @@
 listfile_entry *
 create_filelist(int maxfiles)
 {
+  listfile_entry * filelist = (listfile_entry*)malloc(sizeof(listfile_entry)*maxfiles);
 
-  // TO BE COMPLETED
+  for(int i=0; i<maxfiles ; i++){
+    filelist[i].filename[0] = "\0"; // \0 = chaine vide
+    filelist[i].loaded = 0;
+  }
 
-  return NULL; // TODO
+  return filelist;
 }
 
 /**
@@ -58,9 +62,17 @@ add_file(char filename[],
 	 hash_table * htable_ptr)
 {
 
-   // TO BE COMPLETED
-
   return 0; // all fine
+}
+
+int
+is_loaded(listfile_entry* filelist, char filename[] ){
+  for(int i = 0; i < MAX_FILES; i++){
+    if(filelist[i].filename == filename){
+      return filelist[i].loaded;
+    }
+  }
+  return 0;
 }
 
 /**
@@ -109,7 +121,7 @@ parameters :
 void
 free_filelist(listfile_entry * filelist)
 {
-  // TO BE COMPLETED
+  free(filelist);
 }
 
 // ************************************************************************
@@ -117,4 +129,3 @@ free_filelist(listfile_entry * filelist)
 // ************************************************************************
 
 // TO BE COMPLETED
-
